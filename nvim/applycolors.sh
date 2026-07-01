@@ -24,7 +24,7 @@ colorvalues=($colorstrings)
 apply_base46() {
     local TEMPLATE="$HOME/.config/nvim/colors"
     local CACHE_FILE="$CACHE_DIR/materialyou.lua"
-    local DEST="$HOME/.config/nvim/lua/themes/material-you.lua"
+    local DEST="$HOME/.config/nvim/lua/themes/illogical_impulse.lua"
 
     [[ ! -f "$TEMPLATE" ]] && return
 

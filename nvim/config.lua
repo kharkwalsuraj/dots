@@ -40,7 +40,7 @@ vim.lsp.enable(servers)
 --@type ChadrcConfig
 local M = {}
 M.base46 = {
-  theme = "material-you",
+  theme = "illogical_impulse",
   transparency = false,
   hl_override = {
     TbFill = { bg = "base00", },
