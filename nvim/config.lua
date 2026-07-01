@@ -41,8 +41,16 @@ vim.lsp.enable(servers)
 local M = {}
 M.base46 = {
   theme = "material-you",
-  transparency = true,
+  transparency = false,
   hl_override = {
+    TbFill = { bg = "base00", },
+    TbBufOff = { bg = "base00", },
+    TbBufOffClose = { bg = "base00" },
+    NvimTreeNormal = { bg = "base00" },
+    NvimTreeNormalNC = { bg = "base00" },
+    NvimTreeCursorLine = { bg = "base00" },
+    NormalFloat = { bg = "base00" },
+    StatusLine = { bg = "base00" },
     Comment = { italic = true },
     ["@comment"] = { italic = true },
   },
@@ -50,12 +58,18 @@ M.base46 = {
 
 M.nvdash = {
   header = { "  󰥳  " },
-  load_on_startup = true
+  load_on_startup = true,
+
 }
 M.ui = {
+  telescope = { style = "borderless" }, -- borderless / bordered
   tabufline = {
-    lazyload = false,
-    order = { "buffers", "tabs", "btns", "treeOffset" }
+    enabled = true,
+    lazyload = true,
+    treeOffsetFt = "NvimTree",
+    order = { "buffers", "treeOffset" },
+    modules = nil,
+    bufwidth = 21,
   }
 }
 
@@ -71,6 +85,10 @@ local nomap = vim.keymap.del
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
+
+
+map({"n", "i"}, "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+map({"n","i"}, "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
 
 map("n", "<leader>ch", "<CMD>e ~/.local/share/nvim/lazy/NvChad/lua/nvchad/mappings.lua <CR>",
   { desc = "Goat's Cheatsheet" })

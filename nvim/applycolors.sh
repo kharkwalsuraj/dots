@@ -22,7 +22,7 @@ colorlist=($colornames)
 colorvalues=($colorstrings)
 
 apply_base46() {
-    local TEMPLATE="$HOME/.config/nvim/materialyoutemplate"
+    local TEMPLATE="$HOME/.config/nvim/colors"
     local CACHE_FILE="$CACHE_DIR/materialyou.lua"
     local DEST="$HOME/.config/nvim/lua/themes/material-you.lua"
 
