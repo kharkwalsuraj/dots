@@ -124,3 +124,26 @@ return {
     },
   },
 }
+
+
+---- Init.lua ----
+-- append the below line
+require("base46").compile()
+require("base46").load_all_highlights()
+
+
+---- Autocmds.lua ----
+
+require "nvchad.autocmds"
+
+vim.api.nvim_create_autocmd("Signal", {
+  pattern = "SIGUSR1",
+  callback = function()
+    require("nvconfig").base46.theme = "illogical_impulse"
+    require("chadrc").base46.theme = "illogical_impulse"
+    require("nvchad.utils").reload("themes")
+    require("base46").compile()
+    require("base46").load_all_highlights()
+    print("colors changed")
+  end,
+})
