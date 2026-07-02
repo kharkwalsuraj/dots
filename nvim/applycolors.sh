@@ -33,4 +33,6 @@ for i in "${!colorlist[@]}"; do
 done
 
 cp "$CACHE_FILE" "$DEST_FILE"
-pkill -SIGUSR1 nvim 2>/dev/null || true
+for addr in "$XDG_RUNTIME_DIR"/nvim.*; do
+  nvim --server "$addr" --remote-send ':lua require("nvchad.utils").reload("themes"); require("base46").load_all_highlights()<CR>'
+done
